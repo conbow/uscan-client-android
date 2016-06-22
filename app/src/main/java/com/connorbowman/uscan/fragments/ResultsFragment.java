@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.connorbowman.uscan.R;
 import com.connorbowman.uscan.adapters.PricesAdapter;
@@ -78,7 +79,6 @@ public class ResultsFragment extends BaseFragment<ResultsPresenter> implements R
         mViewResults = view.findViewById(R.id.view_results);
         mViewNoResults = view.findViewById(R.id.view_no_results);
 
-
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh);
         mSwipeRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.accent));
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -109,7 +109,7 @@ public class ResultsFragment extends BaseFragment<ResultsPresenter> implements R
 
     @Override
     public void onFinished(List<Price> prices) {
-        if (prices == null) {
+        if (prices == null || prices.isEmpty()) {
             mViewResults.setVisibility(View.GONE);
             mViewNoResults.setVisibility(View.VISIBLE);
             mListAdapter.replaceData(null);

@@ -1,5 +1,7 @@
 package com.connorbowman.uscan.presenters;
 
+import android.util.Log;
+
 import com.connorbowman.uscan.R;
 import com.connorbowman.uscan.models.Price;
 import com.connorbowman.uscan.utils.TagUtil;
