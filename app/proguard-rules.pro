@@ -22,5 +22,9 @@
 -keepattributes Signature
 -keepattributes Exceptions
 
+# Custom
+-dontwarn okio.** # For Retrofit OkHTTP
+-keep class com.connorbowman.uscan.models.** { *; }
+
 # TODO Temporary fix for proguard issue with animating "progress" for drawer icon (aka Hamburger)
 -keep class android.support.v7.app.ActionBarDrawerToggle$* { *; }
